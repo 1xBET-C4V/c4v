@@ -7,7 +7,7 @@
     --transition: all 0.3s ease;
     --light-primary: #3aade2;
     --light-dark-bg: #f5f9ff;
-    --light-light-bg: rgba(244, 247, 242, 0.95);
+    --light-light-bg: rgba(255, 255, 255, 0.95);
     --light-text: #21366d;
     --light-secondary-text: #5a7ca8;
 }
@@ -47,10 +47,6 @@ body[data-theme="light"] {
     background: linear-gradient(135deg, #ffffff, #e6f0ff);
 }
 
-body[data-theme="light"]::before {
-    background: none;
-}
-
 body::before {
     content: '';
     position: fixed;
@@ -58,9 +54,13 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><defs><filter id="glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(#glow)"><circle cx="10%" cy="20%" r="2" fill="#ff6f61" opacity="0.3"><animate attributeName="cy" values="20%;80%;20%" dur="10s" repeatCount="indefinite"/></circle><circle cx="30%" cy="50%" r="1" fill="#ff6f61" opacity="0.2"><animate attributeName="cy" values="50%;90%;50%" dur="15s" repeatCount="indefinite"/></circle><circle cx="70%" cy="30%" r="3" fill="#ff6f61" opacity="0.4"><animate attributeName="cy" values="30%;70%;30%" dur="12s" repeatCount="indefinite"/></circle></g></svg>') no-repeat;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><defs><filter id="glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(#glow)"><circle cx="10%" cy="20%" r="2" fill="#3aade2" opacity="0.3"><animate attributeName="cy" values="20%;80%;20%" dur="10s" repeatCount="indefinite"/></circle><circle cx="30%" cy="50%" r="1" fill="#3aade2" opacity="0.2"><animate attributeName="cy" values="50%;90%;50%" dur="15s" repeatCount="indefinite"/></circle><circle cx="70%" cy="30%" r="3" fill="#3aade2" opacity="0.4"><animate attributeName="cy" values="30%;70%;30%" dur="12s" repeatCount="indefinite"/></circle></g></svg>') no-repeat;
     background-attachment: fixed;
     z-index: -1;
+}
+
+body[data-theme="light"]::before {
+    background: none;
 }
 
 .container {
@@ -76,7 +76,7 @@ body::before {
 }
 
 body[data-theme="light"] .container {
-    background: rgba(244, 247, 242, 0.9);
+    background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -133,7 +133,7 @@ body[data-theme="light"] .container {
 
 .profile img:hover {
     transform: rotate(360deg);
-    box-shadow: 0 0 15px rgba(255, 111, 97, 0.5);
+    box-shadow: 0 0 15px rgba(58, 173, 226, 0.5);
 }
 
 .profile h2 {
@@ -169,7 +169,7 @@ body[data-theme="light"] .container {
 }
 
 body[data-theme="light"] .news-item {
-    background: rgba(255, 111, 97, 0.05);
+    background: rgba(58, 173, 226, 0.05);
 }
 
 body[lang="en"] .news-item {
@@ -178,12 +178,12 @@ body[lang="en"] .news-item {
 
 .news-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+    box-shadow: 0 5px 15px rgba(58, 173, 226, 0.3);
 }
 
 body[data-theme="light"] .news-item:hover {
-    background: rgba(255, 111, 97, 0.2);
-    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+    background: rgba(58, 173, 226, 0.2);
+    box-shadow: 0 5px 15px rgba(58, 173, 226, 0.3);
 }
 
 .news-item h4 {
@@ -207,7 +207,7 @@ body[data-theme="light"] .news-item:hover {
     gap: 10px;
 }
 
-.links .contact-link {
+.links .tg-link {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -224,24 +224,41 @@ body[data-theme="light"] .news-item:hover {
     box-sizing: border-box;
 }
 
-body[data-theme="light"] .links .contact-link {
-    background: rgba(255, 111, 97, 0.05);
+body[data-theme="light"] .links .tg-link {
+    background: rgba(58, 173, 226, 0.05);
 }
 
-body[lang="en"] .links .contact-link {
+body[lang="en"] .links .tg-link {
     justify-content: flex-start;
     flex-direction: row;
 }
 
-.links .contact-link:hover {
-    background: rgba(255, 111, 97, 0.2);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+.links .tg-link img {
+    width: 64px;
+    height: 64px;
+    margin-right: 20px;
+    border-radius: 8px;
 }
 
-body[data-theme="light"] .links .contact-link:hover {
-    background: rgba(255, 111, 97, 0.2);
-    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+body[lang="ar"] .links .tg-link img {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+body[lang="en"] .links .tg-link img {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+.links .tg-link:hover {
+    background: rgba(58, 173, 226, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(58, 173, 226, 0.3);
+}
+
+body[data-theme="light"] .links .tg-link:hover {
+    background: rgba(58, 173, 226, 0.2);
+    box-shadow: 0 5px 15px rgba(58, 173, 226, 0.3);
 }
 
 .contact-header {
@@ -261,7 +278,7 @@ body[data-theme="light"] .links .contact-link:hover {
 }
 
 body[data-theme="light"] .promocode-content {
-    background: rgba(255, 111, 97, 0.05);
+    background: rgba(58, 173, 226, 0.05);
 }
 
 .promocode-content:hover {
@@ -269,7 +286,7 @@ body[data-theme="light"] .promocode-content {
 }
 
 body[data-theme="light"] .promocode-content:hover {
-    background: rgba(255, 111, 97, 0.2);
+    background: rgba(58, 173, 226, 0.2);
 }
 
 .promocode-content p {
@@ -306,13 +323,13 @@ body[data-theme="light"] .promocode-content:hover {
 }
 
 .copy-btn:hover {
-    background: #ff8c82;
+    background: #5bc0f0;
     transform: scale(1.05);
 }
 
 .copy-btn:active {
     transform: scale(0.95);
-    box-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+    box-shadow: 0 0 10px rgba(58, 173, 226, 0.5);
 }
 
 .copy-btn::after {
@@ -490,12 +507,6 @@ footer span {
     }
 }
 
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    75% { transform: translateX(3px); }
-}
-
 @media (max-width: 768px) {
     body::before {
         background: none;
@@ -514,9 +525,22 @@ footer span {
     .profile p {
         font-size: 16px;
     }
-    .links .contact-link {
+    .links .tg-link {
         padding: 10px;
         font-size: 14px;
+    }
+    .links .tg-link img {
+        width: 48px;
+        height: 48px;
+        margin-right: 15px;
+    }
+    body[lang="ar"] .links .tg-link img {
+        margin-right: 0;
+        margin-left: 15px;
+    }
+    body[lang="en"] .links .tg-link img {
+        margin-right: 0;
+        margin-left: 15px;
     }
 }
 
@@ -524,8 +548,21 @@ footer span {
     .section h3 {
         font-size: 24px;
     }
-    .links .contact-link {
+    .links .tg-link {
         padding: 8px;
         font-size: 12px;
+    }
+    .links .tg-link img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    body[lang="ar"] .links .tg-link img {
+        margin-right: 0;
+        margin-left: 10px;
+    }
+    body[lang="en"] .links .tg-link img {
+        margin-right: 0;
+        margin-left: 10px;
     }
 }
