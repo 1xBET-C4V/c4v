@@ -89,21 +89,22 @@ document.addEventListener("DOMContentLoaded", () => {
             container.appendChild(link);
         });
     }
-
 function updateNews() {
     const lang = document.documentElement.getAttribute("lang") || "ar";
-    newsContent.innerHTML = ```<div class='spinner'><i class='fas fa-spinner'></i><span class='loading-text' data-loading-text></span></div>`;
+    newsContent.innerHTML = `<div class='spinner'><i class='fas fa-spinner'></i><span class='loading-text' data-loading-text></span></div>`;
     const loadingInterval = updateLoadingText();
     setTimeout(() => {
         clearInterval(loadingInterval);
         newsContent.innerHTML = "";
-        const newsItem = document.createElement("div");
-        newsItem.className = "news-item";
-        newsItem.innerHTML = `<h4>${translations[lang]["newOffer"]}</h4><p>${translations[lang]["promocodeOffer"]}</p>`;
-        newsContent.appendChild(newsItem);
+        newsData.forEach(item => {
+            const newsItem = document.createElement("div");
+            newsItem.className = "news-item";
+            newsItem.innerHTML = `<h4>${translations[lang][item.title]}</h4><p>${translations[lang][item.content]}</p>`;
+            newsContent.appendChild(newsItem);
+        });
     }, 500);
 }
-
+    
     if (copyBtn) {
         copyBtn.addEventListener("click", () => {
             copyPromocode();
