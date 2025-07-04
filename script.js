@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
             footer: "Powered by <span>1xBET بالعربي</span>",
             loading: "جاري التحميل...",
             promocodeText: "استخدم الكود <strong>REELGOLD50X</strong> للحصول على مكافآت حصرية!",
+            newOffer: "عرض جديد!",
+            promocodeOffer: "استخدم كود REELGOLD50X للحصول على مكافأة 200% على اشتراكك الأول!",
             managerContact: "حساب المدير الخاص بالمسابقة",
             supportContact: "حساب الدعم الخاص بالمسابقة"
         },
@@ -64,6 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
             footer: "Powered by <span>1xBET بالعربي</span>",
             loading: "Loading...",
             promocodeText: "Use the code <strong>REELGOLD50X</strong> to get exclusive bonuses!",
+            newOffer: "New Offer!",
+            promocodeOffer: "Use code REELGOLD50X to get a 200% bonus on your first subscription!",
             managerContact: "Contest Manager Account",
             supportContact: "Contest Support Account"
         }
@@ -89,22 +93,21 @@ document.addEventListener("DOMContentLoaded", () => {
             container.appendChild(link);
         });
     }
-function updateNews() {
-    const lang = document.documentElement.getAttribute("lang") || "ar";
-    newsContent.innerHTML = `<div class='spinner'><i class='fas fa-spinner'></i><span class='loading-text' data-loading-text></span></div>`;
-    const loadingInterval = updateLoadingText();
-    setTimeout(() => {
-        clearInterval(loadingInterval);
-        newsContent.innerHTML = "";
-        newsData.forEach(item => {
+
+    function updateNews() {
+        const lang = document.documentElement.getAttribute("lang") || "ar";
+        newsContent.innerHTML = `<div class='spinner'><i class='fas fa-spinner'></i><span class='loading-text' data-loading-text></span></div>`;
+        const loadingInterval = updateLoadingText();
+        setTimeout(() => {
+            clearInterval(loadingInterval);
+            newsContent.innerHTML = "";
             const newsItem = document.createElement("div");
             newsItem.className = "news-item";
-            newsItem.innerHTML = `<h4>${translations[lang][item.title]}</h4><p>${translations[lang][item.content]}</p>`;
+            newsItem.innerHTML = `<h4>${translations[lang]["newOffer"]}</h4><p>${translations[lang]["promocodeOffer"]}</p>`;
             newsContent.appendChild(newsItem);
-        });
-    }, 500);
-}
-    
+        }, 500);
+    }
+
     if (copyBtn) {
         copyBtn.addEventListener("click", () => {
             copyPromocode();
@@ -125,7 +128,7 @@ function updateNews() {
     }
 
     if (langDropdown) {
-        langOptions.forEach(option => {
+        lang OPTIONS.forEach(option => {
             option.addEventListener("click", () => {
                 const lang = option.getAttribute("data-lang");
                 document.documentElement.setAttribute("lang", lang);
