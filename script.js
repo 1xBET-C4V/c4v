@@ -23,101 +23,107 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollTopBtn = document.querySelector(".scroll-top-btn");
     const langDropdown = document.querySelector(".lang-dropdown");
     const langOptions = document.querySelectorAll(".lang-option");
-    const contactLinks = document.getElementById("contact-links");
+    const telegramLinks = document.getElementById("telegram-links");
 
-    const contactData = [
-        { href: "https://t.me/moderator1x", text: "managerContact" },
-        { href: "https://t.me/moder1xsupport", text: "supportContact" }
+    const telegramData = [
+        { href: "https://tpv.sr/uhJPfo", text: "1xBET Egypt - بالعربي", flag: "img/egy.png" },
+        { href: "https://tpv.sr/uhJPfv", text: "1xBET Morocco - بالعربي", flag: "img/mar.png" },
+        { href: "https://tpv.sr/uhJPfx", text: "1xBET Mauritania - بالعربي", flag: "img/mrt.png" },
+        { href: "https://tpv.sr/uhJPg7", text: "1xBET Iraq - بالعربي", flag: "img/irq.png" },
+        { href: "https://tpv.sr/uhJPgA", text: "1xBET Jordan - بالعربي", flag: "img/jor.png" },
+        { href: "https://tpv.sr/uhJPgE", text: "1xBET Algeria - بالعربي", flag: "img/dza.png" }
     ];
 
     const newsData = [
-        { title: "newOffer", content: "promocodeOffer" },
-        { title: "contestUpdate", content: "contestUpdateContent" },
-        { title: "newFeature", content: "newFeatureContent" }
+        { title: "newOffer", content: "promocodeOffer" }
     ];
 
     const translations = {
         ar: {
             home: "الرئيسية",
-            contactUs: "راسلنا",
+            channels: "تلغرام",
             promocode: "البروموكود",
             copyBtn: "نسخ الكود",
             copied: "تم النسخ!",
             copyPromocodeAria: "نسخ بروموكود REELGOLD50X",
-            profileTitle: "مدونة Cash 4 Views",
+            profileTitle: "مسابقة Cash 4 Views",
             profileDesc: "آخر الأخبار والإعلانات",
-            contactHeader: "تواصلوا معنا عبر تلغرام",
+            channelsHeader: "قنوات تلغرام الرسمية",
             footer: "Powered by <span>Cash 4 Views</span>",
             loading: "جاري التحميل...",
             promocodeText: "استخدم الكود <strong>REELGOLD50X</strong> للحصول على مكافآت حصرية!",
             newOffer: "عرض جديد!",
-            promocodeOffer: "استخدم كود REELGOLD50X للحصول على مكافأة 200% على اشتراكك الأول!",
-            contestUpdate: "تحديث المسابقة",
-            contestUpdateContent: "تم إطلاق مسابقة جديدة في Cash 4 Views! انضم الآن لفرصة الفوز بجوائز رائعة.",
-            newFeature: "ميزة جديدة",
-            newFeatureContent: "اكتشف ميزات جديدة في منصة Cash 4 Views لتحسين تجربتك!",
-            managerContact: "حساب المدير الخاص بالمسابقة",
-            supportContact: "حساب الدعم الخاص بالمسابقة"
+            promocodeOffer: "استخدم كود REELGOLD50X للحصول على مكافأة 200% !"
         },
         en: {
             home: "Home",
-            contactUs: "Contact Us",
+            channels: "Telegram",
             promocode: "Promo Code",
             copyBtn: "Copy Code",
             copied: "Copied!",
             copyPromocodeAria: "Copy promo code REELGOLD50X",
-            profileTitle: "Cash 4 Views Blog",
+            profileTitle: "Cash 4 Views Competition",
             profileDesc: "Latest News and Announcements",
-            contactHeader: "Contact us via Telegram",
+            channelsHeader: "Official Telegram Channels",
             footer: "Powered by <span>Cash 4 Views</span>",
             loading: "Loading...",
             promocodeText: "Use the code <strong>REELGOLD50X</strong> to get exclusive bonuses!",
             newOffer: "New Offer!",
-            promocodeOffer: "Use code REELGOLD50X to get a 200% bonus on your first subscription!",
-            contestUpdate: "Contest Update",
-            contestUpdateContent: "A new contest has been launched on Cash 4 Views! Join now for a chance to win great prizes.",
-            newFeature: "New Feature",
-            newFeatureContent: "Discover new features on the Cash 4 Views platform to enhance your experience!",
-            managerContact: "Contest Manager Account",
-            supportContact: "Contest Support Account"
+            promocodeOffer: "Use code REELGOLD50X to get a 200% bonus !"
         }
     };
 
     function updateLinks(container, data, options = {}) {
+        if (!container) {
+            console.error("Element for links not found in the DOM");
+            return;
+        }
         container.innerHTML = "";
         const { headerText = "" } = options;
         const lang = document.documentElement.getAttribute("lang") || "ar";
         if (headerText) {
             const header = document.createElement("p");
-            header.textContent = translations[lang][headerText];
+            header.textContent = translations[lang][headerText] || headerText;
             header.className = "contact-header";
             container.appendChild(header);
         }
         data.forEach(item => {
             const link = document.createElement("a");
             link.href = item.href;
-            link.className = "contact-link";
+            link.className = "tg-link";
             link.target = "_blank";
             link.rel = "noopener noreferrer";
-            link.textContent = translations[lang][item.text];
+            const flagImg = document.createElement("img");
+            flagImg.src = item.flag;
+            flagImg.alt = `${item.text} flag`;
+            flagImg.className = "flag-icon";
+            link.appendChild(flagImg);
+            link.appendChild(document.createTextNode(translations[lang][item.text] || item.text));
             container.appendChild(link);
         });
     }
 
     function updateNews() {
+        if (!newsContent) {
+            console.error("Element with ID 'news-content' not found in the DOM");
+            return;
+        }
         const lang = document.documentElement.getAttribute("lang") || "ar";
         newsContent.innerHTML = `<div class='spinner'><i class='fas fa-spinner'></i><span class='loading-text' data-loading-text></span></div>`;
         const loadingInterval = updateLoadingText();
         setTimeout(() => {
             clearInterval(loadingInterval);
             newsContent.innerHTML = "";
-            newsData.forEach(item => {
-                const newsItem = document.createElement("div");
-                newsItem.className = "news-item";
-                newsItem.innerHTML = `<h4>${translations[lang][item.title]}</h4><p>${translations[lang][item.content]}</p>`;
-                newsContent.appendChild(newsItem);
-            });
-        }, 500);
+            if (!translations[lang]["newOffer"] || !translations[lang]["promocodeOffer"]) {
+                console.error(`Error: Translation keys 'newOffer' or 'promocodeOffer' missing for language '${lang}'`);
+                newsContent.innerHTML = `<div class="news-item"><h4>خطأ</h4><p>تعذر تحميل الخبر</p></div>`;
+                return;
+            }
+            const newsItem = document.createElement("div");
+            newsItem.className = "news-item";
+            newsItem.innerHTML = `<h4>${translations[lang]["newOffer"]}</h4><p>${translations[lang]["promocodeOffer"]}</p>`;
+            newsContent.appendChild(newsItem);
+        }, 100);
     }
 
     if (copyBtn) {
@@ -147,7 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.documentElement.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
                 document.body.setAttribute("lang", lang);
 
-                // تحديث النصوص
                 document.querySelectorAll("[data-translate]").forEach(element => {
                     const key = element.getAttribute("data-translate");
                     if (key === "footer" || key === "promocodeText") {
@@ -157,14 +162,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
 
-                // تحديث aria-label
                 document.querySelectorAll("[data-aria-label]").forEach(element => {
                     const key = element.getAttribute("data-aria-label");
                     element.setAttribute("aria-label", translations[lang][key]);
                 });
 
-                // تحديث الروابط والأخبار
-                updateLinks(contactLinks, contactData, { headerText: "contactHeader" });
+                updateLinks(telegramLinks, telegramData, { headerText: "channelsHeader" });
                 updateNews();
 
                 localStorage.setItem("lang", lang);
@@ -189,11 +192,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    updateLinks(contactLinks, contactData, { headerText: "contactHeader" });
+    updateLinks(telegramLinks, telegramData, { headerText: "channelsHeader" });
     updateNews();
 
-    // فحص الصور
-    ["img/main.jpg", "img/logo.png", "img/favicon.ico", "img/default.jpg"].forEach(url => {
+    ["img/main.jpg", "img/logo.png", "img/favicon.ico", "img/default.jpg", "img/egy.png", "img/mar.png", "img/mrt.png", "img/irq.png", "img/jor.png", "img/dza.png"].forEach(url => {
         const img = new Image();
         img.src = url;
         img.onerror = () => console.error(`فشل تحميل الصورة: ${url}`);
