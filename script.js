@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             loading: "جاري التحميل...",
             promocodeText: "استخدم الكود <strong>REELGOLD50X</strong> للحصول على مكافآت حصرية!",
             newOffer: "عرض جديد!",
-            promocodeOffer: "استخدم كود REELGOLD50X للحصول على مكافأة 200% على اشتراكك الأول!"
+            promocodeOffer: "استخدم كود REELGOLD50X للحصول على مكافأة 200%!"
         },
         en: {
             home: "Home",
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
             loading: "Loading...",
             promocodeText: "Use the code <strong>REELGOLD50X</strong> to get exclusive bonuses!",
             newOffer: "New Offer!",
-            promocodeOffer: "Use code REELGOLD50X to get a 200% bonus on your first subscription!"
+            promocodeOffer: "Use code REELGOLD50X to get a 200% bonus!"
         }
     };
 
