@@ -26,12 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const telegramLinks = document.getElementById("telegram-links");
 
     const telegramData = [
-        { href: "https://t.me/xBET_MENA_EGY", text: "1xBET Egypt - بالعربي", flag: "img/egy.png" },
-        { href: "https://t.me/xBET_MENA_MAR", text: "1xBET Morocco - بالعربي", flag: "img/mar.png" },
-        { href: "https://t.me/xBET_MENA_MRT", text: "1xBET Mauritania - بالعربي", flag: "img/mrt.png" },
-        { href: "https://t.me/xBET_MENA_IRQ", text: "1xBET Iraq - بالعربي", flag: "img/irq.png" },
-        { href: "https://t.me/xBET_MENA_JOR", text: "1xBET Jordan - بالعربي", flag: "img/jor.png" },
-        { href: "https://t.me/xBET_MENA_DZA", text: "1xBET Algeria - بالعربي", flag: "img/dza.png" }
+        { href: "https://tpv.sr/uhJPfo/", text: "1xBET Egypt - بالعربي", flag: "img/egy.png" },
+        { href: "https://tpv.sr/uhJPfv/", text: "1xBET Morocco - بالعربي", flag: "img/mar.png" },
+        { href: "https://tpv.sr/uhJPfx/", text: "1xBET Mauritania - بالعربي", flag: "img/mrt.png" },
+        { href: "https://tpv.sr/uhJPg7/", text: "1xBET Iraq - بالعربي", flag: "img/irq.png" },
+        { href: "https://tpv.sr/uhJPgA/", text: "1xBET Jordan - بالعربي", flag: "img/jor.png" },
+        { href: "https://tpv.sr/uhJPgE/", text: "1xBET Algeria - بالعربي", flag: "img/dza.png" }
     ];
 
     const newsData = [
@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
             copyBtn: "نسخ الكود",
             copied: "تم النسخ!",
             copyPromocodeAria: "نسخ بروموكود REELGOLD50X",
-            profileTitle: "مدونة Cash 4 Views",
             profileDesc: "آخر الأخبار والإعلانات",
             channelsHeader: "قنوات تلغرام الرسمية",
             footer: "Powered by <span>1xBET بالعربي</span>",
@@ -62,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
             copyBtn: "Copy Code",
             copied: "Copied!",
             copyPromocodeAria: "Copy promo code REELGOLD50X",
-            profileTitle: "Cash 4 Views Blog",
             profileDesc: "Latest News and Announcements",
             channelsHeader: "Official Telegram Channels",
             footer: "Powered by <span>1xBET بالعربي</span>",
