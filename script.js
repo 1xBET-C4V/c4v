@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateLinks(telegramLinks, telegramData);
     updateNews();
 
-    ["img/main.jpg", "img/logo.png", "img/favicon.ico", "img/default.jpg", "img/egy.png", "img/mar.png", "img/mrt.png", "img/irq.png", "img/jor.png", "img/dza.png"].forEach(url => {
+    ["img/main.jpg", "img/favicon.ico", "img/egy.png", "img/mar.png", "img/mrt.png", "img/irq.png", "img/jor.png", "img/dza.png"].forEach(url => {
         const img = new Image();
         img.src = url;
         img.onerror = () => console.error(`فشل تحميل الصورة: ${url}`);
